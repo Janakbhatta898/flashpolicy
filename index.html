@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlashPolicy - Compare Bike Insurance</title>
+  <link href="./styles/main.css" rel="stylesheet">
+  <!-- Tailwind CSS for styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#10B981', // Green theme
+            dark: '#064E3B',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50">
+  <!-- Navbar -->
+  <header class="bg-primary text-white shadow-lg">
+    <div class="container mx-auto px-4 py-3">
+      <h1 class="text-2xl font-bold">FLASHPOLICY</h1>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-primary to-dark text-white py-12">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Compare Bike Insurance in Seconds</h2>
+      <p class="text-xl">Find the best coverage at the lowest price</p>
+    </div>
+  </section>
+
+  <!-- Filter Controls -->
+  <div class="container mx-auto px-4 py-8">
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <select id="insurer-filter" class="p-2 border rounded">
+          <option value="all">All Insurers</option>
+          <option value="tata-aig">Tata AIG</option>
+          <option value="bajaj-allianz">Bajaj Allianz</option>
+        </select>
+        <select id="coverage-filter" class="p-2 border rounded">
+          <option value="all">Coverage Type</option>
+          <option value="comprehensive">Comprehensive</option>
+          <option value="third-party">Third Party</option>
+        </select>
+        <select id="sort-by" class="p-2 border rounded">
+          <option value="low-high">Price: Low to High</option>
+          <option value="high-low">Price: High to Low</option>
+        </select>
+        <input type="text" id="search" placeholder="Search..." class="p-2 border rounded">
+      </div>
+    </div>
+  </div>
+
+  <!-- Results Grid -->
+  <div class="container mx-auto px-4 py-4">
+    <div id="results" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Insurance cards will appear here -->
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./scripts/data.js"></script>
+  <script src="./scripts/app.js"></script>
+</body>
+</html>
