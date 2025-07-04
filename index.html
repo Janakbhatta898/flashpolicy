@@ -129,5 +129,26 @@
   <!-- Scripts -->
   <script src="./scripts/data.js"></script>
   <script src="./scripts/app.js"></script>
+  <!-- Contact Popup HTML -->
+<div id="contactPopup" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+  <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="text-xl font-bold text-gray-800">Contact FlashPolicy</h3>
+      <button onclick="closePopup()" class="text-gray-500 hover:text-gray-700">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="space-y-4">
+      <a href="tel:+911234567890" class="flex items-center bg-green-50 text-primary hover:bg-green-100 p-3 rounded-lg transition-colors">
+        <i class="fas fa-phone-alt mr-3 text-lg"></i>
+        <span class="font-semibold">+91 123 456 7890</span>
+      </a>
+      <p class="text-gray-600 text-center">or</p>
+      <button onclick="closePopup()" class="w-full bg-primary hover:bg-dark text-white py-2 rounded-lg font-semibold transition-colors">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
 </body>
 </html>

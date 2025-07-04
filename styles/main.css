@@ -16,3 +16,10 @@ button:hover {
 .hover\\:shadow-lg {
   transition: box-shadow 0.3s ease;
 }
+/* Popup Styles */
+.hidden {
+  display: none;
+}
+#contactPopup {
+  backdrop-filter: blur(5px);
+}
