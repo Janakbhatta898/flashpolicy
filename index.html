@@ -3,68 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FlashPolicy - Compare Bike Insurance</title>
-  <link href="./styles/main.css" rel="stylesheet">
-  <!-- Tailwind CSS for styling -->
+  <title>FlashPolicy - Compare & Buy Bike Insurance Online</title>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#10B981', // Green theme
+            primary: '#10B981', // FlashPolicy Green
             dark: '#064E3B',
-          }
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
         }
       }
     }
   </script>
+  <link rel="stylesheet" href="./styles/main.css">
 </head>
-<body class="bg-gray-50">
+<body class="font-sans bg-gray-50">
   <!-- Navbar -->
-  <header class="bg-primary text-white shadow-lg">
-    <div class="container mx-auto px-4 py-3">
-      <h1 class="text-2xl font-bold">FLASHPOLICY</h1>
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <i class="fas fa-bolt text-2xl text-primary"></i>
+        <h1 class="text-2xl font-bold text-gray-800">FLASH<span class="text-primary">POLICY</span></h1>
+      </div>
+      <div class="hidden md:flex space-x-6">
+        <a href="#" class="text-gray-700 hover:text-primary">Home</a>
+        <a href="#" class="text-gray-700 hover:text-primary">Claims</a>
+        <a href="#" class="text-gray-700 hover:text-primary">FAQ</a>
+      </div>
+      <button class="bg-primary hover:bg-dark text-white px-4 py-2 rounded-md transition-colors">
+        <i class="fas fa-phone-alt mr-2"></i> Call Now
+      </button>
     </div>
-  </header>
+  </nav>
 
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-primary to-dark text-white py-12">
+  <!-- Hero Banner -->
+  <section class="bg-gradient-to-r from-primary to-dark text-white py-16">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-4">Compare Bike Insurance in Seconds</h2>
-      <p class="text-xl">Find the best coverage at the lowest price</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Compare Bike Insurance Plans</h1>
+      <p class="text-xl mb-8">Save up to <span class="font-bold">70%</span> on premiums. Get instant quotes!</p>
+      <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-xl p-6">
+        <div class="flex flex-col md:flex-row gap-4">
+          <select class="flex-grow p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+            <option>Select Bike Brand</option>
+            <option>Hero</option>
+            <option>Bajaj</option>
+            <option>TVS</option>
+          </select>
+          <button class="bg-primary hover:bg-dark text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+            <i class="fas fa-search mr-2"></i> Compare Now
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Filter Controls -->
-  <div class="container mx-auto px-4 py-8">
-    <div class="bg-white p-6 rounded-lg shadow-md">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <select id="insurer-filter" class="p-2 border rounded">
-          <option value="all">All Insurers</option>
-          <option value="tata-aig">Tata AIG</option>
-          <option value="bajaj-allianz">Bajaj Allianz</option>
-        </select>
-        <select id="coverage-filter" class="p-2 border rounded">
-          <option value="all">Coverage Type</option>
-          <option value="comprehensive">Comprehensive</option>
-          <option value="third-party">Third Party</option>
-        </select>
-        <select id="sort-by" class="p-2 border rounded">
-          <option value="low-high">Price: Low to High</option>
-          <option value="high-low">Price: High to Low</option>
-        </select>
-        <input type="text" id="search" placeholder="Search..." class="p-2 border rounded">
+  <!-- Why Choose Us -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Why Choose FlashPolicy?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center p-6 hover:shadow-lg rounded-lg transition-shadow">
+          <div class="bg-primary/10 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+            <i class="fas fa-bolt text-3xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Instant Quotes</h3>
+          <p class="text-gray-600">Compare prices from top insurers in seconds.</p>
+        </div>
+        <div class="text-center p-6 hover:shadow-lg rounded-lg transition-shadow">
+          <div class="bg-primary/10 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+            <i class="fas fa-rupee-sign text-3xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Save Money</h3>
+          <p class="text-gray-600">Lowest premiums guaranteed.</p>
+        </div>
+        <div class="text-center p-6 hover:shadow-lg rounded-lg transition-shadow">
+          <div class="bg-primary/10 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+            <i class="fas fa-headset text-3xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">24/7 Support</h3>
+          <p class="text-gray-600">Claim assistance anytime.</p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Results Grid -->
-  <div class="container mx-auto px-4 py-4">
-    <div id="results" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <!-- Insurance cards will appear here -->
+  <!-- Top Insurance Plans -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">Top Bike Insurance Plans</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="insurance-plans">
+        <!-- Plans will load here via JavaScript -->
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <h2 class="text-2xl font-bold">FLASH<span class="text-primary">POLICY</span></h2>
+          <p class="text-gray-400">India's #1 Bike Insurance Comparator</p>
+        </div>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <hr class="border-gray-700 my-6">
+      <p class="text-center text-gray-400">© 2023 FlashPolicy. All rights reserved.</p>
+    </div>
+  </footer>
 
   <!-- Scripts -->
   <script src="./scripts/data.js"></script>

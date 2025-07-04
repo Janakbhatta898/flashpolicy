@@ -1,63 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const renderPlans = (plans) => {
-    const resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = plans.map(plan => `
-      <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow">
-        <div class="p-6">
-          <div class="flex justify-between items-start">
-            <img src="${plan.logo}" alt="${plan.insurer}" class="h-12">
-            <span class="bg-primary text-white text-sm px-2 py-1 rounded">${plan.type.toUpperCase()}</span>
-          </div>
-          <h3 class="text-xl font-semibold mt-4">${plan.name}</h3>
-          <div class="mt-2">
-            <span class="text-2xl font-bold text-primary">₹${plan.price}</span>
-            <span class="text-gray-500">/year</span>
-          </div>
-          <ul class="mt-4 space-y-2">
-            ${plan.coverage.map(item => `<li class="flex items-center">
-              <svg class="w-4 h-4 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              ${item}
-            </li>`).join('')}
-          </ul>
-          <button class="mt-6 w-full bg-primary hover:bg-dark text-white py-2 px-4 rounded transition-colors">
-            Buy Now
-          </button>
+  const plansContainer = document.getElementById('insurance-plans');
+  
+  insurancePlans.forEach(plan => {
+    const planCard = document.createElement('div');
+    planCard.className = 'bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow';
+    planCard.innerHTML = `
+      <div class="p-6">
+        <div class="flex justify-between items-start mb-4">
+          <img src="${plan.logo}" alt="${plan.name}" class="h-10">
+          <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">${plan.savings}</span>
         </div>
+        <h3 class="text-xl font-semibold mb-2">${plan.name}</h3>
+        <div class="flex items-center mb-4">
+          <div class="flex text-yellow-400 mr-2">
+            ${'<i class="fas fa-star"></i>'.repeat(Math.floor(plan.rating))}
+          </div>
+          <span class="text-gray-600">${plan.rating}/5</span>
+        </div>
+        <div class="mb-6">
+          <span class="text-3xl font-bold text-primary">₹${plan.price}</span>
+          <span class="text-gray-500">/year</span>
+        </div>
+        <ul class="space-y-2 mb-6">
+          ${plan.features.map(feature => `
+            <li class="flex items-center">
+              <i class="fas fa-check-circle text-primary mr-2"></i>
+              ${feature}
+            </li>
+          `).join('')}
+        </ul>
+        <button class="w-full bg-primary hover:bg-dark text-white py-3 rounded-lg font-semibold transition-colors">
+          BUY NOW
+        </button>
       </div>
-    `).join('');
-  };
-
-  // Initial render
-  renderPlans(insurancePlans);
-
-  // Filter handlers
-  document.getElementById('insurer-filter').addEventListener('change', filterPlans);
-  document.getElementById('coverage-filter').addEventListener('change', filterPlans);
-  document.getElementById('sort-by').addEventListener('change', filterPlans);
-  document.getElementById('search').addEventListener('input', filterPlans);
-
-  function filterPlans() {
-    const insurer = document.getElementById('insurer-filter').value;
-    const coverage = document.getElementById('coverage-filter').value;
-    const sortBy = document.getElementById('sort-by').value;
-    const searchTerm = document.getElementById('search').value.toLowerCase();
-
-    let filtered = [...insurancePlans];
-
-    // Apply filters
-    if (insurer !== 'all') filtered = filtered.filter(plan => plan.insurer === insurer);
-    if (coverage !== 'all') filtered = filtered.filter(plan => plan.type === coverage);
-    if (searchTerm) filtered = filtered.filter(plan => 
-      plan.name.toLowerCase().includes(searchTerm) ||
-      plan.insurer.toLowerCase().includes(searchTerm)
-    );
-
-    // Apply sorting
-    if (sortBy === 'low-high') filtered.sort((a, b) => a.price - b.price);
-    else if (sortBy === 'high-low') filtered.sort((a, b) => b.price - a.price);
-
-    renderPlans(filtered);
-  }
+    `;
+    plansContainer.appendChild(planCard);
+  });
 });

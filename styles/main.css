@@ -1,4 +1,18 @@
-/* Custom styles (optional) */
-body {
-  font-family: 'Arial', sans-serif;
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom button animation */
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+/* Card hover effect */
+.hover\\:shadow-lg {
+  transition: box-shadow 0.3s ease;
 }
